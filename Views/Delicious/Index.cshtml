@@ -1,0 +1,30 @@
+@using Chefs_N_Dishes.Models
+@model List<ChefViewDTO>
+
+@await Html.PartialAsync("_Nav")
+<div class="ChefsList">
+    <h1>Check out our roster of chefs!</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th># of Dishes</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                foreach (ChefViewDTO result in @Model)
+                {
+                    <tr>
+                        <td>@result.Name</td>
+                        <td>@result.Birthdate</td>
+                        <td>@result.VNumDishes</td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+
+</div>

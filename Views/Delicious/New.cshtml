@@ -1,0 +1,57 @@
+@using Chefs_N_Dishes.Models
+@model DisheChefViewDTO
+
+@await Html.PartialAsync("_Nav")
+<div class="DisheList">
+    <h1>Add a dish</h1>
+
+    <form asp-action="Create" asp-controller="Delicious">
+        <div class="formdish">
+            <div class="blocks">
+                <div class="blockinputs">
+                    <label asp-for="Name">Name of Dish</label>
+                    <input asp-for="Name">
+                    <span asp-validation-for="Name"></span>
+                </div>
+                <div class="blockinputs">
+                    <label asp-for="Calories"># of Calories</label>
+                    <input asp-for="Calories">
+                    <span asp-validation-for="Calories"></span>
+                </div>
+            </div>
+            <div class="blocks">
+                <div class="blockinputs">
+                    <label asp-for="ChefSelect">Chef</label>
+                    <select asp-for="ChefSelect">
+                        @foreach (ChefnameDTO result in @Model.chefnameDTOs)
+                        {
+                            <option value="@result.ChefID">@result.Name</option>
+                        }
+                    </select>
+                    <span asp-validation-for="ChefSelect"></span>
+                </div>
+                <div class="blockinputs">
+                    <label asp-for="Tastiness">Tastiness</label>
+                    <select asp-for="Tastiness" class="select">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                    <span asp-validation-for="Tastiness"></span>
+                </div>
+            </div>
+            <div class="blocks">
+                <div class="blockinputs">
+                    <label asp-for="Description">Description</label>
+                    <textarea asp-for="Description"></textarea>
+                    <span asp-validation-for="Description"></span>
+                </div>
+                <div class="blockinputs">
+                    <button type="submit" class="btn1 btn btnfirst">New Dish</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

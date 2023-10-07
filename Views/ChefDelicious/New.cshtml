@@ -1,0 +1,28 @@
+@using Chefs_N_Dishes.Models
+@model Chef
+
+@await Html.PartialAsync("_Nav")
+
+<div class="ChefsList">
+    <h1>Add a chef</h1>
+    <form asp-action="Create" asp-controller="ChefDelicious" class="formChef">
+        <div class="blockinputs">
+            <label asp-for="Name">First Name</label>
+            <input asp-for="Name">
+            <span asp-validation-for="Name"></span>
+        </div>
+        <div class="blockinputs">
+            <label asp-for="Last_Name">Last Name:</label>
+            <input asp-for="Last_Name">
+            <span asp-validation-for="Last_Name"></span>
+        </div>
+        <div class="blockinputs">
+            <label asp-for="Birthdate">Date of Birth</label>
+            <input asp-for="Birthdate">
+            <span asp-validation-for="Birthdate"></span>
+        </div>
+        <div class="blockinputs">
+            <button type="submit" class="btn1 btn btnfirst">New Dish</button>
+        </div>
+    </form>
+</div>
